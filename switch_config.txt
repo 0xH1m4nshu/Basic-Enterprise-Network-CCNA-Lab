@@ -1,0 +1,39 @@
+enable
+configure terminal
+
+! Create VLANs
+vlan 10
+name HR
+
+vlan 20
+name IT
+
+vlan 30
+name GUEST
+
+! Assign ports
+interface fa0/1
+switchport mode access
+switchport access vlan 10
+
+interface fa0/2
+switchport mode access
+switchport access vlan 20
+
+interface fa0/3
+switchport mode access
+switchport access vlan 30
+
+! Trunk port to router
+interface fa0/24
+switchport mode trunk
+
+! Port Security (HR example)
+interface fa0/1
+switchport port-security
+switchport port-security maximum 1
+switchport port-security violation restrict
+switchport port-security mac-address sticky
+
+end
+write memory
