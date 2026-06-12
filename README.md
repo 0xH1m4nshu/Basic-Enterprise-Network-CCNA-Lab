@@ -31,3 +31,5 @@ This project simulates a small enterprise network using VLAN segmentation, inter
 ## Tools
 
 * Cisco Packet Tracer
+
+For Strick
